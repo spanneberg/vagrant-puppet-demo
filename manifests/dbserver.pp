@@ -18,6 +18,8 @@ class mysql_5 {
 
   file { "/etc/mysql/my.cnf":
     owner => 'root',
+    group => 'root',
+    mode => 644,
     notify => Service['mysql'],
     source => '/vagrant/files/my.cnf'
   }
