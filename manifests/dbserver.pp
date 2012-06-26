@@ -2,8 +2,13 @@ group { 'puppet': ensure => 'present' }
 
 class mysql_5 {
   
+  exec { "update-package-list":
+    command => "/usr/bin/sudo /usr/bin/apt-get update",
+  }
+
   package { "mysql-server-5.1":
-    ensure => present
+    ensure => present,
+    require => Exec["update-package-list"],
   }
   
   service { "mysql":
@@ -21,7 +26,8 @@ class mysql_5 {
     group => 'root',
     mode => 644,
     notify => Service['mysql'],
-    source => '/vagrant/files/my.cnf'
+    source => '/vagrant/files/my.cnf',
+    require => Package["mysql-server-5.1"],
   }
 
 }
