@@ -1,3 +1,5 @@
+This demo code is tested with Vagrant 1.0.2 and VirtualBox 4.1.10.
+
 This is a simple example of how to build a virtual test environment with Vagrant and Puppet.
 
 The setup contains two virtual machines, one database server with MySQL and one application server with Tomcat 6.
@@ -17,5 +19,3 @@ When you're done, don't forget to stop your virtual boxes with
 or completely remove them with
 
 > vagrant destroy
-
-
